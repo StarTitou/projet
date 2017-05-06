@@ -20,7 +20,7 @@ while True:
   print ('client connected ... ', addr)
   #request=conn.recv(2048)
   #f=request
-  f = "test_480p.mp4"
+  f = "test_144p.mp4"
   file=open(f,"rb").read()
   print(len(file))
   #data=[file[i: i + 1024] for i in range(0, len(file), 1024)]
