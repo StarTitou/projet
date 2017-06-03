@@ -63,12 +63,13 @@ while True:
         conn.send(data[next_seq])
         print("waiting ",str(next_seq))
         try:
+                print('attend recv....')
                 request = conn.recv(1024).decode()	    
-
+                print('apres recv....')
         except socket.timeout:
                 
-                serv.bind(ADDR)
-                serv.listen(5)
+                #serv.bind(ADDR)
+                #serv.listen(5)
                 print('listening ...')
                 data = "hello from server"
                 conn, addr = serv.accept()
