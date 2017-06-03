@@ -61,8 +61,20 @@ while True:
     while j < len(data):
 
         conn.send(data[next_seq])
-        request = conn.recv(1024).decode()
-       
+               print("waiting ",str(next_seq))
+        try:
+                request = conn.recv(1024).decode()	    
+
+        except socket.timeout:
+                
+                serv.bind(ADDR)
+                serv.listen(5)
+                print('listening ...')
+                data = "hello from server"
+                conn, addr = serv.accept()
+                print('client connected ... ', addr)
+		
+
         next_seq = int(get_seq(request)) + 1
 
         last_seq = next_seq
